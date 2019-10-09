@@ -3,6 +3,9 @@ package leetcode;
 import datastructs.TreeNode;
 import utils.Arr2TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class S111 {
     public static void main(String[] args) {
         Integer[] arr = {3, 9, 20, null, null, 15, 7};
@@ -13,24 +16,38 @@ public class S111 {
 
     class Solution {
         public int minDepth(TreeNode root) {
-            return dfs(root,Double.POSITIVE_INFINITY,0);
+            return bfs(root);
+            // todo 给出递归解法
         }
 
-        private int dfs(TreeNode root,Double min,int current){
+        private int bfs(TreeNode root){
+            int depth = 0;
+            if (root == null){
+                return depth;
+            }
+            depth ++;
+            Queue<TreeNode> queue = new LinkedList<TreeNode>();
+            queue.add(root);
+            Queue<TreeNode> temp = new LinkedList<TreeNode>(); //todo 可以优化通过size优化此空间
+            while (queue.size() != 0){
+                TreeNode remove = queue.remove();
+                if (remove.left == null && remove.right == null){
+                    return depth;
+                }
+                if (remove.left != null){
+                    temp.add(remove.left);
+                }
+                if (remove.right != null){
+                    temp.add(remove.right);
+                }
+                if (queue.size() == 0 && temp.size() != 0){
+                    depth ++;
+                    queue.addAll(temp);
+                    temp.clear();
+                }
+            }
+            return depth;
 
-            if (root == null && min != Double.POSITIVE_INFINITY){
-                return min.intValue();
-            }
-            if (root == null && min == Double.POSITIVE_INFINITY){
-                return 0;
-            }
-            if (root.right == null && root.left == null){
-                min = min.intValue() > current ? current : min;
-            }
-            current ++;
-            int m1 = dfs(root.left,min,current);
-            int m2 = dfs(root.right,min,current);
-            return m1 > m2 ? m2:m1;
         }
     }
 }
