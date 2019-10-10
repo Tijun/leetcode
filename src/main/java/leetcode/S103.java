@@ -1,7 +1,7 @@
 package leetcode;
 
 import datastructs.TreeNode;
-import utils.Arr2TreeNode;
+import utils.TreeNodeBuilder;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,7 +11,7 @@ import java.util.Queue;
 public class S103 {
     public static void main(String[] args) {
         Integer[] arr = {3, 9, 20, null, null, 15, 7};
-        TreeNode treeNode = Arr2TreeNode.buildByNumberArr(arr);
+        TreeNode treeNode = TreeNodeBuilder.buildByNumberArr(arr);
         List<List<Integer>> lists = new S103().new Solution().zigzagLevelOrder(treeNode);
         System.out.println(lists);
     }

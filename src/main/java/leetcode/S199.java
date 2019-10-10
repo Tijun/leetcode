@@ -1,7 +1,7 @@
 package leetcode;
 
 import datastructs.TreeNode;
-import utils.Arr2TreeNode;
+import utils.TreeNodeBuilder;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,7 +11,7 @@ import java.util.Queue;
 public class S199 {
     public static void main(String[] args) {
         Integer[] arr = new Integer[]{1,2,3,null,5,null,4};
-        TreeNode treeNode = Arr2TreeNode.buildByNumberArr(arr);
+        TreeNode treeNode = TreeNodeBuilder.buildByNumberArr(arr);
         System.out.println(new S199().new Solution().rightSideView(treeNode));
     }
 

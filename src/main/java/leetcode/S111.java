@@ -1,7 +1,7 @@
 package leetcode;
 
 import datastructs.TreeNode;
-import utils.Arr2TreeNode;
+import utils.TreeNodeBuilder;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,7 +9,7 @@ import java.util.Queue;
 public class S111 {
     public static void main(String[] args) {
         Integer[] arr = {3, 9, 20, null, null, 15, 7};
-        TreeNode root = Arr2TreeNode.buildByNumberArr(arr);
+        TreeNode root = TreeNodeBuilder.buildByNumberArr(arr);
         int dfs = new S111().new Solution().minDepth(root);
         System.out.println(dfs);
     }

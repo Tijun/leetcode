@@ -5,7 +5,7 @@ import datastructs.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Arr2TreeNode {
+public class TreeNodeBuilder {
 
     public static TreeNode buildByNumberArr(Integer[] numbers){
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
