@@ -11,7 +11,6 @@ public class TreeNodeBuilder {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         TreeNode root = new TreeNode(numbers[0]);
         queue.add(root);
-        int count = 0;
         for (int i = 1;i < numbers.length; i+=2 ){
             TreeNode head = queue.remove();
             if (numbers[i] != null){
